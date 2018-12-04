@@ -75,4 +75,12 @@ Rscript --vanilla extract_snp_gene_pair_comb_matrix.R {files}_output.txt {files}
 ```
 
 
+## Authors
+Jing Gu
 
+## Acknowledgements
+Dr. Graham McVicker Salk Institute for Biological Studies
+Patrick Fiaux UC San Diego
+Arko Sen Salk Institute for Biological Studies
+Hsiuyi Chen Salk Institute for Biological Studies
+Selene Tyndale Salk Institute for Biological Studies

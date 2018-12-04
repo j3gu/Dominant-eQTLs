@@ -28,10 +28,10 @@ Here is an illustration of what dominant eQTL looks like.
 
 ## Getting Started
 ### Dependencies
-snakemake 3.13.3
-python2.7
-numpy
-R
+* snakemake 3.13.3
+* python2.7
+* numpy
+* R
 
 ### Snakemake Workflow
 Input files: Genotype file (genotype.txt) and RNA-Seq counts matrix file (gene_expr.txt) downloaded from GTEx project
@@ -79,8 +79,8 @@ Rscript --vanilla extract_snp_gene_pair_comb_matrix.R {files}_output.txt {files}
 Jing Gu
 
 ## Acknowledgements
-*Dr. Graham McVicker Salk Institute for Biological Studies
-*Patrick Fiaux UC San Diego
-*Arko Sen Salk Institute for Biological Studies
-*Hsiuyi Chen Salk Institute for Biological Studies
-*Selene Tyndale Salk Institute for Biological Studies
+* Dr. Graham McVicker Salk Institute for Biological Studies
+* Patrick Fiaux UC San Diego
+* Arko Sen Salk Institute for Biological Studies
+* Hsiuyi Chen Salk Institute for Biological Studies
+* Selene Tyndale Salk Institute for Biological Studies

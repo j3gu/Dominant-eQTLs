@@ -43,7 +43,7 @@ Rscript --vanilla pca_genotype.R genotype genotype.txt genotype_pca.txt
 
 2. Regress out sex, age, race and hidden covariates from gene expression matrix using PEER package
 ```
-Rscript --vanilla peer_factor.R gene_expr.txt genotype_pca.txt clinic_info.txt gene_expr_PEER.txt
+Rscript --vanilla peer_factor.R gene_expr.txt genotype_pca.txt phenotype_info.txt gene_expr_PEER.txt
 
 ```
 

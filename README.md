@@ -22,3 +22,57 @@ Here is an illustration of what dominant eQTL looks like.
 
 ## Workflow
 
+![image](https://user-images.githubusercontent.com/17937089/49410437-72f98b80-f719-11e8-90cc-99cbdea859e6.png)
+
+![image](https://user-images.githubusercontent.com/17937089/49410444-83116b00-f719-11e8-9ceb-1a8ead1c4e77.png)
+
+## Getting Started
+### Dependencies
+snakemake 3.13.3
+python2.7
+numpy
+R
+
+### Snakemake Workflow
+Input files: Genotype file (genotype.txt) and RNA-Seq counts matrix file (gene_expr.txt) downloaded from GTEx project
+1. Run PCA analysis on the genotype matrix
+```
+Rscript --vanilla pca_genotype.R genotype genotype.txt genotype_pca.txt 
+
+```
+
+2. Regress out sex, age, race and hidden covariates from gene expression matrix using PEER package
+```
+Rscript --vanilla peer_factor.R gene_expr.txt genotype_pca.txt clinic_info.txt gene_expr_PEER.txt
+
+```
+
+3. Split jobs for parallele computation:1000 genes per job
+ ```
+ python split_into_files.py gene_expr_PEER.txt {files}_peer_expr.txt
+
+ ```
+ 
+4. Merge SNPs that are within +/- 100kb of gene body with gene expression matrixes by column into a large matrix
+```
+python snps_counts_comb_by_chr_no_filter.py snp.h5 index.h5 genotype_pca.txt {files}_peer_expr.txt {files}_snps_counts_comb.txt
+
+```
+5. Adjust p-values using beta approximation and further speed up using matrix multiplication
+```
+Rscript --vanilla beta_adjust_P_matrix_multip_corrected.R {files}_snps_counts_comb.txt {files}_output.txt
+
+```
+6. Merge output files
+```
+cat {files}_output.txt > all_chr_output.txt
+
+```
+7. extract out snp-gene pair that shows dominant effects
+```
+Rscript --vanilla extract_snp_gene_pair_comb_matrix.R {files}_output.txt {files}_snps_counts_comb.txt dominant_snp_gene_pair.txt
+
+```
+
+
+

@@ -8,9 +8,9 @@ We applied a multiple linear regression model to identify dominant associaions b
 
 ![image](https://user-images.githubusercontent.com/17937089/49409717-adadf480-f716-11e8-8c8b-f01a83d8e930.png)
 
-Ga stands for the number of non-reference alleles. $G_A$ = 0 if genotype is reference homozygous; Ga = 1 of genotype is heterozygous; Ga = 2 if genotype is non-reference homozygous. This is the variable that captures the additive effects, which is commonly used in the analysis of gene expression quantitative loci(eQTLs).
+$G_A$ stands for the number of non-reference alleles. $G_A$ = 0 if genotype is reference homozygous; $G_A$ = 1 of genotype is heterozygous; $G_A$ = 2 if genotype is non-reference homozygous. This is the variable that captures the additive effects, which is commonly used in the analysis of gene expression quantitative loci(eQTLs).
 
-Gd captures dominant effects, where Gd = 1 if genotype is heterozygous and Gd = 0 if genotype is either reference or non-reference homozygous. 
+$G_D$ captures dominant effects, where $G_D$ = 1 if genotype is heterozygous and $G_D$ = 0 if genotype is either reference or non-reference homozygous. 
 
 E denotes the observed gene expression levels. Our model assumes that the noise across samples is normally distributed with 0 mean and some variance value.
 
